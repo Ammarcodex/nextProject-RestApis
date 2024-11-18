@@ -15,7 +15,7 @@ export default function middleware(request : Request){
     }
 
     const authResult = authMiddleware(request);
-    if(!authResult?.isvalid && request.url.includes("/api/blogs")){
+    if(!authResult?.isvalid && request.url.includes("/api/")){
         return new NextResponse(JSON.stringify({message:"Unauthorized"}),{status: 401});
     }
  return NextResponse.next()
